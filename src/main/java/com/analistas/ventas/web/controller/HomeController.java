@@ -9,8 +9,8 @@ public class HomeController {
 
     @GetMapping(value = { "/", "/home" })
     public String verHome(Model model) {
-        model.addAttribute("titulo", "Mi Aplicacion Spring Boot");
-        model.addAttribute("subtitulo", "Punto de Ventas");
+        model.addAttribute("titulo", "Gestión de Punto de Ventas - Dashboard");
+        
         return "home";
     }
 }
