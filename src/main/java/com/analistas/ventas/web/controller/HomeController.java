@@ -9,7 +9,7 @@ public class HomeController {
 
     @GetMapping(value = { "/", "/home" })
     public String verHome(Model model) {
-        model.addAttribute("titulo", "Gestión de Punto de Ventas - Dashboard");
+        model.addAttribute("titulo", "Gestión de Punto de Ventas - DashBoard");
         
         return "home";
     }
