@@ -10,9 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductoController {
 
     @GetMapping(value = { "/listado" })
-    public String verProducto(Model model) {
+    public String listar(Model model) {
         model.addAttribute("titulo", "Listado de productos");
         
         return "productos/listado";
+    }
+    
+    @GetMapping("/nuevo")
+    public String nuevo(Model model) {
+        model.addAttribute("titulo", "Nuevo producto");
+        
+        return "productos/form";
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ClienteController {
 
     @GetMapping(value = { "/listado" })
-    public String verClientes(Model model) {
+    public String listar(Model model) {
         model.addAttribute("titulo", "Listado de clientes");
         
         return "clientes/listado";

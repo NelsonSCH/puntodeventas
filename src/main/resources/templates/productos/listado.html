@@ -1,20 +1,66 @@
 <!DOCTYPE html>
-<html 
-    lang="es"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org/"
-    xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/layout}"
-    >
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+    xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${titulo}" >Document</title>
+    <title th:text="${titulo}">Document</title>
 </head>
+
 <body>
     <div layout:fragment="contenido">
-        <h2 th:text="${titulo}"></h2>
+        <div class="container-fluid">
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="card-title" th:text="${titulo}"></h5>
+
+                </div>
+                <div class="card-body">
+                    <table id="tablaProductos" class="table table-striped table-hover table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Imagen</th>
+                                <th>Cód. Barras</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <ht colspan="2"></ht>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>...</td>
+                                <td>1000000000001</td>
+                                <td>Coca cola 2.25 lts</td>
+                                <td>$250.00</td>
+                                <td>55</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-warning fload-end" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" title="Editar">
+                                        <i class='bx bx-edit-alt bx-tada'></i>
+                                    </a>
+
+                                    <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" title="Borrar">
+                                        <i class='bx bx-trash bx-tada'></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/productos/nuevo}" class="btn btn-outline-primary float-end">
+                        Nuevo Producto
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>

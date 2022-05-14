@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsuarioController {
 
     @GetMapping(value = { "/listado" })
-    public String verUsuario(Model model) {
+    public String listar(Model model) {
         model.addAttribute("titulo", "Listado de usuarios");
         
         return "usuarios/listado";
