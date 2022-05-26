@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html 
-    lang="es"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org/"
-    xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{layout/layout}"
-    >
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+    xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${titulo}" >Document</title>
+    <title th:text="${titulo}">Document</title>
 </head>
+
 <body>
     <div layout:fragment="contenido">
         <div class="container-fluid mt-4">
@@ -19,40 +16,47 @@
                 <div class="card-header">
                     <h5 class="card title" th:text="${titulo}"></h5>
                 </div>
-                <div class="card-body">
-                    <div class="form">
-                        <label for="cod-bar" class="form-label">Código de Barras</label>
-                        <input id="cod-bar"  type="text" class="form-control" />
-                    </div>
-                    <div class="form">
-                        <label for="descri" class="form-label">Descripción</label>
-                        <input id="descri"  type="text" class="form-control" />
-                    </div>
-                    <div class="form">
-                        <label for="precio" class="form-label">Precio</label>
-                        <input id="precio"  type="text" class="form-control" />
-                    </div>
 
-                    <div class="form">
-                        <label for="stock" class="form-label">Stock</label>
-                        <input id="stock"  type="number" class="form-control" />
-                    </div>
+                <form th:action="@{/productos/guardar}" method="post" th:object="${producto}">
+                    <div class="card-body">
+                        <div class="form">
+                            <label for="cod-bar" class="form-label">Código de Barras</label>
+                            <input id="cod-bar" type="text" class="form-control" th:field="*{codigoBarras}" />
+                        </div>
+                        <div class="form">
+                            <label for="descri" class="form-label">Descripción</label>
+                            <input id="descri" type="text" class="form-control" th:field="*{descripcion}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{descripcion}"></small>
+                        </div>
+                        <div class="form">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input id="precio" type="text" class="form-control" th:field="*{precio}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{precio}"></small>
+                        </div>
 
-                    <div class="form">
-                        <label for="url-img" class="form-label">Link de la Imagen</label>
-                        <input id="url-img"  type="text" class="form-control" />
+                        <div class="form">
+                            <label for="stock" class="form-label">Stock</label>
+                            <input id="stock" type="number" class="form-control" th:field="*{stock}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{stock}"></small>
+                        </div>
+
+                        <div class="form">
+                            <label for="url-img" class="form-label">Link de la Imagen</label>
+                            <input id="url-img" type="text" class="form-control" th:field="*{linkImagen}" />
+                        </div>
                     </div>
-                </div>
-                <div class=" card-footer">
-                    <a href="#" class="btn btn-primary float-end ms-2">
-                        Guardar
-                    </a>
-                    <a th:href="@{/productos/listado}" class="btn btn-outline-secondary fload-end">
-                        Cancelar
-                    </a>
-                </div>
+                    <div class=" card-footer">
+                        <button type="submit" class="btn btn-primary float-end ms-2">
+                            Guardar
+                        </button>
+                        <a th:href="@{/productos/listado}" class="btn btn-outline-secondary fload-end">
+                            Cancelar
+                        </a>
+                    </div>
             </div>
+            </form>
         </div>
     </div>
 </body>
+
 </html>

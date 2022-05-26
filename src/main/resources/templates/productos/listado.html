@@ -31,15 +31,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>...</td>
-                                <td>1000000000001</td>
-                                <td>Coca cola 2.25 lts</td>
-                                <td>$250.00</td>
-                                <td>55</td>
+                            <tr th:each="p : ${productos}">
+                                <td th:text="${p.id}">1</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-warning fload-end" data-bs-toggle="tooltip"
+                                    <img th:src="@{${p.linkImagen}}" alt="Sin Imagen" height="100px" />
+                                </td>
+                                <td th:text="${p.codigoBarras}">1000000000001</td>
+                                <td th:text="${p.descripcion}">Coca cola 2.25 lts</td>
+                                <td th:text="${p.precio}">$250.00</td>
+                                <td th:text="${p.stock}">55</td>
+                                <td class="text-center">
+                                    <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="tooltip"
                                         data-bs-placement="bottom" title="Editar">
                                         <i class='bx bx-edit-alt bx-tada'></i>
                                     </a>
