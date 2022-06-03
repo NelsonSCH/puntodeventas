@@ -12,11 +12,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 
 @Entity
 @Table(name="productos")
+@Where(clause = "act = true")
 public class Producto {
     
     @Id
@@ -41,7 +43,7 @@ public class Producto {
     private String linkImagen;
 
     @Column(name = "act", columnDefinition =  "bit default 1")
-    private Boolean activo;
+    private boolean activo;
 
     public Producto() {
         activo = true;
@@ -95,11 +97,11 @@ public class Producto {
         this.linkImagen = linkImagen;
     }
 
-    public Boolean getActivo() {
+    public boolean isActivo() {
         return activo;
     }
 
-    public void setActivo(Boolean activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 
@@ -107,5 +109,6 @@ public class Producto {
     public String toString() {
         return  id + " - " + descripcion + " - " + precio;
     }
+
     
 }

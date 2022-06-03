@@ -41,13 +41,13 @@
                                 <td th:text="${p.precio}">$250.00</td>
                                 <td th:text="${p.stock}">55</td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="tooltip"
+                                    <a th:href="@{/productos/editar/} + ${p.id}" class="btn btn-sm btn-warning" data-bs-toggle="tooltip"
                                         data-bs-placement="bottom" title="Editar">
                                         <i class='bx bx-edit-alt bx-tada'></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Borrar">
+                                    <a th:href="@{/productos/borrar/} + ${p.id}" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" onclick="return confirm('Está seguro de eliminar el producto?');" title="Borrar">
                                         <i class='bx bx-trash bx-tada'></i>
                                     </a>
                                 </td>
