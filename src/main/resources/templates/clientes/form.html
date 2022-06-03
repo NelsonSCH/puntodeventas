@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+    xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}">Document</title>
+</head>
+
+<body>
+    <div layout:fragment="contenido">
+        <div class="container-fluid mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card title" th:text="${titulo}"></h5>
+                </div>
+                <form th:action="@{/clientes/guardar}" method="post" th:object="${cliente}">
+                    <div class="card-body">
+                        <div class="form">
+                            <label for="nom" class="form-label">Nombre</label>
+                            <input id="nom" type="text" class="form-control" th:field="*{nombre}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{nombre}"></small>
+                        </div>
+                        <div class="form">
+                            <label for="tel" class="form-label">Teléfono</label>
+                            <input id="tel" type="number" class="form-control" th:field="*{telefono}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{telefono}"></small>
+                        </div>
+                        <div class="form">
+                            <label for="direc" class="form-label"> Dirección</label>
+                            <input id="direc" type="text" class="form-control" th:field="*{direccion}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{direccion}"></small>
+                        </div>
+
+                        <div class="form">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" type="text" class="form-control" th:field="*{email}" th:errorclass="'form-control alert-danger'" />
+                            <small class="form-text text-danger" th:errors="*{email}"></small>
+                        </div>
+                    </div>
+                    <div class=" card-footer">
+                        <button type="submit" class="btn btn-primary float-end ms-2">
+                            Guardar
+                        </button>
+                        <a th:href="@{/clientes/listado}" class="btn btn-outline-secondary fload-end">
+                            Cancelar
+                        </a>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
