@@ -11,21 +11,24 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Where;
+
 
 @Entity
 @Table(name="clientes")
+@Where(clause = "act = true")
 public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tel", length = 11)
-    private int telefono;
-
     @NotBlank(message = "El nombre  es requerido... ")
     @Size(max = 65)
     private String nombre;
+
+    @NotBlank(message = "El teléfono  es requerido... ")
+    private String telefono;
 
     @NotNull(message = "La dirección es requerida...")
     private String direccion;
@@ -33,10 +36,8 @@ public class Cliente {
     @NotNull(message = "El email es requerido...")
     private String email;
 
-    
-
     @Column(name = "act", columnDefinition =  "bit default 1")
-    private Boolean activo;
+    private boolean activo;
 
     public Cliente() {
         activo = true;
@@ -50,20 +51,20 @@ public class Cliente {
         this.id = id;
     }
 
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getDireccion() {
@@ -78,15 +79,15 @@ public class Cliente {
         return email;
     }
 
-    public void setStock(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public Boolean getActivo() {
+    public boolean isActivo() {
         return activo;
     }
 
-    public void setActivo(Boolean activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 

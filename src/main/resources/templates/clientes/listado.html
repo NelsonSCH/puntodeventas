@@ -40,13 +40,13 @@
                                 <td th:text="${c.direccion}">Av. del Trabajo 200</td>
                                 <td th:text="${c.email}">Cliente@gmail.com</td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-sm btn-warning fload-end" data-bs-toggle="tooltip"
+                                    <a th:href="@{/clientes/editar/} + ${c.id}" class="btn btn-sm btn-warning" data-bs-toggle="tooltip"
                                         data-bs-placement="bottom" title="Editar">
                                         <i class='bx bx-edit-alt bx-tada'></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="Borrar">
+                                    <a th:href="@{/clientes/borrar/} + ${c.id}" class="btn btn-sm btn-danger" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" onclick="return confirm('Está seguro de eliminar el cliente?');" title="Borrar">
                                         <i class='bx bx-trash bx-tada'></i>
                                     </a>
                                 </td>

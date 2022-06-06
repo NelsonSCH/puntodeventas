@@ -19,13 +19,13 @@
                 <form th:action="@{/clientes/guardar}" method="post" th:object="${cliente}">
                     <div class="card-body">
                         <div class="form">
-                            <label for="nom" class="form-label">Nombre</label>
-                            <input id="nom" type="text" class="form-control" th:field="*{nombre}" th:errorclass="'form-control alert-danger'" />
+                            <label for="name" class="form-label">Nombre</label>
+                            <input id="name" type="text" class="form-control" th:field="*{nombre}" th:errorclass="'form-control alert-danger'" />
                             <small class="form-text text-danger" th:errors="*{nombre}"></small>
                         </div>
                         <div class="form">
                             <label for="tel" class="form-label">Teléfono</label>
-                            <input id="tel" type="number" class="form-control" th:field="*{telefono}" th:errorclass="'form-control alert-danger'" />
+                            <input id="tel" type="text" class="form-control" th:field="*{telefono}" maxlength="13" th:errorclass="'form-control alert-danger'" />
                             <small class="form-text text-danger" th:errors="*{telefono}"></small>
                         </div>
                         <div class="form">

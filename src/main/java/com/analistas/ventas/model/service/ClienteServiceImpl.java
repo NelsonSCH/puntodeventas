@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ClienteServiceImpl  implements IClienteService{
 
     //Forma tradicional es:
-    // PClienteRepositoryImpl clienteRepo= new IClienteRepository();
+    // ClienteRepositoryImpl clienteRepo= new IClienteRepository();
     //DI (Dependence Injection) - IO(Inversion de control)
     //Principio de HolyWood(No me llames .... Yo te llamaré)
     @Autowired
