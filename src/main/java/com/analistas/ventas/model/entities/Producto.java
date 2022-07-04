@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -37,6 +38,7 @@ public class Producto {
     private BigDecimal precio;
 
     @NotNull(message = "El stock es requerido...")
+    @Min(value = 1, message = "El stock no puede ser 0")
     private int stock;
 
     @Column(name = "url_img", length = 500)
@@ -48,6 +50,18 @@ public class Producto {
     public Producto() {
         activo = true;
     }
+
+
+    public Producto(Long id, String codigoBarras, String descripcion, BigDecimal precio, int stock, String linkImagen, boolean activo) {
+        this.id = id;
+        this.codigoBarras = codigoBarras;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.stock = stock;
+        this.linkImagen = linkImagen;
+        this.activo = activo;
+    }
+
 
     public Long getId() {
         return id;
@@ -107,8 +121,8 @@ public class Producto {
 
     @Override
     public String toString() {
-        return  id + " - " + descripcion + " - " + precio;
+        return "Producto [activo=" + activo + ", codigoBarras=" + codigoBarras + ", descripcion=" + descripcion
+                + ", id=" + id + ", linkImagen=" + linkImagen + ", precio=" + precio + ", stock=" + stock + "]";
     }
-
     
 }
