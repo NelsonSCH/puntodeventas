@@ -28,7 +28,8 @@ public class ProductoServiceImpl  implements IProductoService{
     @Override
     @Transactional(readOnly = true)
     public List<Producto> buscarPor(String criterio) {
-        return null;
+
+        return productoRepo.findByCriteria(criterio);
     }
 
     @Override

@@ -23,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name ="ventas")
-public class Ventas {
+public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,7 +49,7 @@ public class Ventas {
   
 
     
-    public Ventas() {
+    public Venta() {
         lineas = new ArrayList<>();
         fechaHora = LocalDateTime.now();
         descripcion = "-";
@@ -104,7 +104,7 @@ public class Ventas {
     }
 
     //
-    public void agregarLinea(LineaVenta linea) {
+    public void addLinea(LineaVenta linea) {
         lineas.add(linea);
     }
 
