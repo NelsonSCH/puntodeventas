@@ -52,7 +52,7 @@ public class Venta {
     public Venta() {
         lineas = new ArrayList<>();
         fechaHora = LocalDateTime.now();
-        descripcion = "-";
+        descripcion = "";
     }
 
     public Long getId() {
