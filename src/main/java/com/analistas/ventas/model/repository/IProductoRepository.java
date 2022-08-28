@@ -12,7 +12,7 @@ public interface IProductoRepository extends JpaRepository<Producto, Long>  {
     
     //Equivalente en SQL:
     //Select * from productos where codigo_barras = ? or  descripcion like %?% and act = 1;
-    @Query("Select p from Producto p where  p.codigoBarras like p.codigoBarras or p.descripcion like %:criterio%"
+    @Query("Select p from Producto p where  p.codigoBarras like %:criterio% or p.descripcion like %:criterio%"
     + " and p.activo = true")
     List<Producto> findByCriteria(@Param("criterio")String criterio);
 }
